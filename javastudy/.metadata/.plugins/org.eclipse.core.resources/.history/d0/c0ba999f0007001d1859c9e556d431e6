@@ -1,0 +1,14 @@
+package ex01_variable;
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+		
+		boolean isGood = true;
+		boolean isAlive = false;
+		System.out.println(isGood);
+		System.out.println(isAlive);
+		
+	}
+
+}
