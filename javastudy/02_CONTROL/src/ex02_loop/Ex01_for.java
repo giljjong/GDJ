@@ -52,6 +52,40 @@ public class Ex01_for {
 		}
 		
 		System.out.println(sum);
+		
+		// 연습
+		// begin ~ end 모든 정수 더하기
+		// begin과 end 중 누가 큰 지 모르는 상황
+		// begin을 end 보다 항상 작은 값으로 바꾼 뒤 begin ~ end 모두 더하기 진행
+		// begin이 end 보다 크다면 begin과 end를 교환
+		
+		int begin = 100;
+		int end = 1;
+		
+		
+		if(begin > end) {
+			int temp;
+			temp = begin;
+			begin = end;
+			end = temp;
+		}
+		int sum2 = 0;
+		for(int n = begin; n <= end; n++) {
+			sum2 += n;
+		}
+		System.out.println(sum2);
+		
+		
+		// 연습
+		// 평점 (1 ~ 5)에 따른 별(★) 출력하기
+		int point = 5;
+		String star = "";
+		
+		for(int n = 0; n < point; n++) {
+			star += "★";
+		}
+		System.out.println(star);
+		
 	}
 
 }
