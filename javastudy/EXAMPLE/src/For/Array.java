@@ -17,6 +17,13 @@ public class Array {
 		System.out.println(two);
 
 		System.out.println(pitches.size());
+		
+		
+		String tel = "010-1234-5678";
+		String[]  arr = tel.split("-");
+		tel = String.join("",arr);
+		
+		System.out.println(tel);
 	}
 
 }
