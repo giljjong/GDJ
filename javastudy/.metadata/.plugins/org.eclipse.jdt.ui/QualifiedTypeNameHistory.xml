@@ -15,4 +15,6 @@
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="ex01_field.User"/>
     <fullyQualifiedTypeName name="ex01_field.UserMain"/>
+    <fullyQualifiedTypeName name="ex07_constructor.ComputerMain"/>
+    <fullyQualifiedTypeName name="jdk.internal.org.jline.reader.impl.history.DefaultHistory"/>
 </qualifiedTypeNameHistroy>
