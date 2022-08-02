@@ -22,4 +22,8 @@
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="quiz03_bus.main"/>
     <fullyQualifiedTypeName name="quiz04_cart.Product"/>
+    <fullyQualifiedTypeName name="cart.Product"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.nodes.PiArrayNode"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
 </qualifiedTypeNameHistroy>
