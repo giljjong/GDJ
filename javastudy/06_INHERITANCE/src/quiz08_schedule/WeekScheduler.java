@@ -52,6 +52,11 @@ public class WeekScheduler {
 					String yesNo = sc.next().substring(0, 1);
 					sc.nextLine();
 					if(yesNo.equalsIgnoreCase("y")) {
+						System.out.print("스케쥴을 입력하세요 >>> ");
+						String schedule = sc.nextLine();			// 스케쥴에 공백 입력이 가능하다
+						Day day = new Day();
+						day.setSchedule(schedule);
+						week[i] = day;
 					} else if (yesNo.equalsIgnoreCase("n")) {
 						System.out.println("새 스케쥴 작성이 취소되었습니다.");
 					} else {
