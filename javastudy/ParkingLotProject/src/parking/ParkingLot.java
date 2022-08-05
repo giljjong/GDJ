@@ -1,5 +1,6 @@
 package parking;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*3. 주차장을 의미하는 ParkingLot 클래스를 구현하시오.
@@ -53,12 +54,11 @@ import java.util.Scanner;
 			sc = new Scanner(System.in);
 		}
 	
-		public void addCar() {
+		public void addCar() throws RuntimeException {
 			System.out.println("현재 등록된 차량 " + idx + "대");
 			
 			if(idx == 10) {
-				System.out.println("더 이상 차량 등록이 불가능합니다.");
-				return;
+				throw new RuntimeException("Full");
 			}
 			
 			System.out.print("차량 번호 >>>");
@@ -73,11 +73,10 @@ import java.util.Scanner;
 			System.out.println("차량번호 " + carNo + " 차량이 등록되었습니다.");
 		}
 		
-		public void deleteCar() {
+		public void deleteCar() throws RuntimeException {
 			
 			if(cars[0] == null) {
-				System.out.println("등록된 차량이 없습니다.");
-				return;
+				throw new RuntimeException("Empty");
 			}
 			
 			System.out.print("제거할 차량번호 >>> ");
@@ -94,11 +93,10 @@ import java.util.Scanner;
 			System.out.println("대상 차량이 존재하지 않습니다.");
 		}
 		
-		public void printAllCars() {
+		public void printAllCars() throws RuntimeException {
 			
 			if(cars[0] == null) {
-				System.out.println("등록된 차량이 없습니다.");
-				return;
+				throw new RuntimeException("Empty");
 			}
 			
 			System.out.println(name + "차량 목록");
@@ -109,16 +107,23 @@ import java.util.Scanner;
 		
 		public void manage() {
 			while(true) {
-				System.out.print("1.추가 2.삭제 3.전체 0.종료 >>> ");
-				int choice = sc.nextInt();
-				sc.nextLine();
-				
-				switch(choice) {
-				case 1 : addCar(); break;
-				case 2 : deleteCar(); break;
-				case 3 : printAllCars(); break;
-				case 0 : System.out.println("Parking 시스템을 종료합니다."); return;
-				default : System.out.println("존재하지 않는 메뉴입니다.");
+				try {
+					System.out.print("1.추가 2.삭제 3.전체 0.종료 >>> ");
+					int choice = sc.nextInt();
+					sc.nextLine();
+					
+					switch(choice) {
+					case 1 : addCar(); break;
+					case 2 : deleteCar(); break;
+					case 3 : printAllCars(); break;
+					case 0 : System.out.println("Parking 시스템을 종료합니다."); return;
+					default : System.out.println("존재하지 않는 메뉴입니다.");
+					}
+				} catch (InputMismatchException e) {
+					System.out.println("정수(1 ~ 3, 0)만 입력해주세요");
+					sc.next();
+				} catch (RuntimeException e) {
+					System.out.println(e.getMessage());
 				}
 			}
 		}
