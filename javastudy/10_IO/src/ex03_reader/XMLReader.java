@@ -18,9 +18,9 @@ public class XMLReader {
 	public static void main(String[] args) {
 		try {
 			
+			File file = new File("C:\\storage", "product.xml");
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			File file = new File("C:\\storage", "product.xml");
 			Document document = builder.parse(file);  // product.xml을 파싱(분석)한 document 객체
 			
 			// 최상위 요소(root)
