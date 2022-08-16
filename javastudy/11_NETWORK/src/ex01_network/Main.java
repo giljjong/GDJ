@@ -6,9 +6,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
@@ -19,7 +24,7 @@ public class Main {
 		// 2. 정형화된 자원의 경로
 		// 3. 웹 주소를 의미
 		// 4. 구성
-		//	  프로토콜://	호스트	 	/	서버경로 ? 파라미터=값&파라미터=값
+		//	  프로토콜:// 호스트:포트번호 /	서버경로 ? 파라미터=값&파라미터=값
 		// 		https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%A0%EC%94%A8
 		// 	  1) https : secure http, 하이퍼텍스트 전송 프로토콜(통신규약)
 		// 	  2) 호스트 : 서버구조
@@ -117,9 +122,31 @@ public class Main {
 		}
 	}
 	
-	public static void main(String[] args) {
-		m3();
-
+	public static void m4() {
+		
+		// 인코딩 : UTF-8 방식으로 암호화
+		// 디코딩 : UTF-8 방식으로 복호화
+		// 원본 데이터 -> 인코딩 -> 전송 -> 디코딩 -> 원본데이터
+		
+		try {
+			
+			// 원본 데이터
+			String str = "한글 english 12345 ※♪$+";
+			
+			// 인코딩
+			String encode = URLEncoder.encode(str, "UTF-8");
+			System.out.println(encode);
+			
+			// 디코딩
+			String decode = URLDecoder.decode(encode, StandardCharsets.UTF_8);
+			System.out.println(decode);
+			
+		} catch(UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
-
+	
+	public static void main(String[] args) {
+		m4();
+	}
 }

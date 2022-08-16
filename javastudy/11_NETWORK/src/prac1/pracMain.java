@@ -17,24 +17,23 @@ public class pracMain {
 	public static void main(String[] args) {
 		
 		try {
-			String apiURL = "https://docs.oracle.com/en/java/javase/11/docs/api/index.html";
-			URL url = new URL(apiURL);
+			String apiURl = "https://docs.oracle.com/en/java/javase/11/docs/api/index.html";
+			URL url = new URL(apiURl);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			
-			if(con.getResponseCode() != HttpURLConnection.HTTP_OK) {
-				System.out.println("API 접속 실패");
-				return;
-			}
-			
 			BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		
-			File file = new File("C:\\storage", "xmlprc.xml");
+			
+			File file = new File("C:\\storage", "xmlprc.html");
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 			
 			String line = null;
 			while((line = br.readLine()) != null) {
-				bw.write(line + "\n");
+				bw.write(line);
 			}
+			
+			br.close();
+			bw.close();
+			con.disconnect();
 			
 		} catch (MalformedURLException e) {
 			System.out.println("API 주소 오류");
