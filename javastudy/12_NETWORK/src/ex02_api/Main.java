@@ -1,6 +1,9 @@
 package ex02_api;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -8,6 +11,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class Main {
 
@@ -32,7 +43,7 @@ public class Main {
 		String apiURL = "http://api.data.go.kr/openapi/tn_pubr_public_weighted_envlp_api";
 		
 		try {
-			String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
+			String serviceKey = "dHpK1saSupC5iBT1N94HBODDS8fiDXg80LdnGGJFOywnKTxQnfRdotV8h4ViKikMaqUriTHFg2YKK71LX+BcWA==";
 			apiURL += "?pageNo=" + URLEncoder.encode("0", "UTF-8");
 			apiURL += "&numOfRows=" + URLEncoder.encode("100", "UTF-8");
 			apiURL += "&type=" + URLEncoder.encode("xml", "UTF-8");
@@ -81,18 +92,53 @@ public class Main {
 			}
 			// 스트림 종료
 			reader.close();
+			
 		} catch (IOException e) {
 			System.out.println("API 응답 실패");
 		}
 		
+		// API로부터 전달받은 xml 데이터
 		String response = sb.toString();
-		System.out.println(response);
-
+		File file = new File("C:\\storage", "api1.xml");
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+			bw.write(response);
+			bw.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+			
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			Element root = doc.getDocumentElement();		// <response> (최상위 태그)
+			NodeList nodeList = root.getChildNodes();		// <response>의 자식 태그 <header>, <body>
+			for(int i = 0; i < nodeList.getLength(); i++) {
+				Node node = nodeList.item(i);				// <header>와 <body>
+				NodeList nodeList2 = node.getChildNodes();	// <header>와 <body>의 자식 태그
+				for(int j = 0; j < nodeList2.getLength(); j++ ) {
+					Node node2 = nodeList2.item(j);
+					System.out.println(node2.getNodeName());
+					if(node2.getNodeName().equals("items")) {		// <items> 태그 대상
+						NodeList items = node2.getChildNodes();
+						for(int k = 0; k < items.getLength(); k++) {
+							Node item = items.item(k);
+							System.out.println(item.getNodeName());
+						}
+					}
+				}
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		// 접속 종료
 		con.disconnect();
 	}
-		
-	
+
 	public static void main(String[] args) {
 		m1();
 	}
