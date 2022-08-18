@@ -17,14 +17,6 @@ public class ServerMain {
 	// 생성된 Server 목록
 	public static List<Server> servers = new ArrayList<>();
 	
-	// 모든 Server에 메시지 전송
-	public static void sendMessage(String message) throws IOException {
-
-		for(Server server : servers) {
-			server.sendMessage(message);
-		}
-	}
-	
 	public static void main(String[] args) {
 		
 		ServerSocket server = null;
@@ -33,6 +25,7 @@ public class ServerMain {
 		try {
 			server = new ServerSocket();
 			server.bind(new InetSocketAddress("localhost", 9090));
+			
 			System.out.println("[new] 채팅 서버 오픈");
 			
 			while(true) {
