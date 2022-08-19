@@ -22,7 +22,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Main {
+public class Main1_xml {
 
 	// 요청
 	// 1. Request
@@ -174,6 +174,7 @@ public class Main {
 		} catch(IOException e) {
 			System.out.println("API 주소 접속 실패");
 		}
+		
 		BufferedReader reader = null;
 		StringBuilder build = new StringBuilder();
 		
@@ -216,9 +217,9 @@ public class Main {
 			Element root = doc.getDocumentElement();
 			
 			StringBuilder itembuild = new StringBuilder();
-			List<String> list = new ArrayList<>();
 			
 			NodeList items = root.getElementsByTagName("item"); 	// 태그 이름으로 찾기
+			
 			for(int i = 0; i < items.getLength(); i++) {
 				Node item = items.item(i);
 				NodeList itemChildren = item.getChildNodes();
@@ -282,7 +283,7 @@ public class Main {
 		
 		try {
 			if(con.getResponseCode() == HttpURLConnection.HTTP_OK) {
-			reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			} else {
 				reader = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 			}
@@ -329,6 +330,7 @@ public class Main {
 				Node category = item.getElementsByTagName("category").item(0);
 				Node obsrValue = item.getElementsByTagName("obsrValue").item(0);
 				String strCategory = null;
+				
 				switch(category.getTextContent()) {
 				case "PTY" : strCategory = "강수형태"; break;
 				case "REH" : strCategory = "습도"; break;
@@ -361,11 +363,9 @@ public class Main {
 			con.setRequestMethod("GET");
 			con.setRequestProperty("Content-Type", "application/xml;");
 			
-			
 		} catch(MalformedURLException e) {
 			System.out.println("API 주소 오류");
-		}
-		catch(IOException e) {
+		} catch(IOException e) {
 			System.out.println("API 주소 접속 실패");
 		}
 		
@@ -448,8 +448,10 @@ public class Main {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
+			
 			Element root = doc.getDocumentElement();
 			Element weather = (Element)root.getElementsByTagName("weather").item(0);
+			
 			sb.append(weather.getAttribute("year") + "년 ");
 			sb.append(weather.getAttribute("month") + "월 ");
 			sb.append(weather.getAttribute("day") + "일 ");
