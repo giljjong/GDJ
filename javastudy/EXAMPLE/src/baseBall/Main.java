@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 	
 	public static void m1() {
-Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		int A = sc.nextInt();
 		int B = sc.nextInt();
