@@ -19,6 +19,12 @@ public class Board {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Board [board_no=" + board_no + ", title=" + title + ", content=" + content + ", hit=" + hit
+				+ ", create_date=" + create_date + "]";
+	}
+
 	public Board(int board_no, String title, String content, int hit, Date create_date) {
 		super();
 		this.board_no = board_no;

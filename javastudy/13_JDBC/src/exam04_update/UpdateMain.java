@@ -18,7 +18,7 @@ public class UpdateMain {
 		
 		// UPDATE할 게시글의 번호 입력 받기
 		System.out.print("변경할 게시글의 작성 번호를 입력해주세요 >>> ");
-		int num = sc.nextInt();
+		int board_no = sc.nextInt();
 		sc.nextLine();
 		
 		// UPDATE할 게시글의 내용(CONTENT) 입력 받기
@@ -28,7 +28,7 @@ public class UpdateMain {
 		// UPDATE할 번호 + 내용을 가진 Board 객체 생성
 		Board board = new Board();
 		
-		board.setBoard_no(num);
+		board.setBoard_no(board_no);
 		board.setContent(content);
 		
 		try {
