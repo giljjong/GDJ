@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.OutputStream"/>
-    <fullyQualifiedTypeName name="java.io.InputStream"/>
-    <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="java.lang.Thread"/>
-    <fullyQualifiedTypeName name="ex03_runnable.WashRobot"/>
-    <fullyQualifiedTypeName name="ex05_synchronized.ToiletRobot"/>
-    <fullyQualifiedTypeName name="ex05_synchronized.RoomRobot"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.lir.amd64.AMD64MathIntrinsicUnaryOp"/>
     <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
     <fullyQualifiedTypeName name="com.sun.security.ntlm.Server"/>
@@ -32,7 +25,6 @@
     <fullyQualifiedTypeName name="org.w3c.dom.Element"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -42,8 +34,6 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="org.json.JSONObject"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="java.lang.Class"/>
     <fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
@@ -51,13 +41,23 @@
     <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.nodes.memory.address.IndexAddressNode"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="domain.Board"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.sun.tools.jdeprscan.scan.Scan"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="domain.Board"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="repository.ContactDAO"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>
