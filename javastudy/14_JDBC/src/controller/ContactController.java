@@ -79,6 +79,9 @@ public class ContactController {
 			case 5 :
 				contactService.findAllContacts();
 				break;
+			case 6 :
+				contactService.createCSV();
+				break;
 			case 0 :
 				System.out.println("연락처 프로그램을 종료합니다.");
 				return;
