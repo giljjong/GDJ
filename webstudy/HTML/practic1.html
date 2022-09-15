@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" name="id" placeholder="example@naver.com">
+    <input type="password" name="pw" placeholder="비밀번호">
+    <button>로그인</button>
+
+    <br>
+    <h2>연습문제-2</h2>
+    <br>
+
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" maxlength="15" name="id" placeholder="아이디">
+                </td>
+                <td rowspan="2">
+                    <button>로그인</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" name="pw" placeholder="비밀번호">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <h2>연습문제-3</h2>
+
+    <table>
+        <caption><strong>개인 정보 작성</strong></caption>
+        <form>
+            <tbody>
+                <tr>
+                    <td>이름</td>
+                    <td><input type="text" name="name" maxlength="10"></td>
+                </tr>
+                <tr>
+                    <td>메일주소</td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>연락처</td>
+                    <td><input type="text" name="tel"></td>
+                </tr>
+                <tr>
+                    <td>블로그/홈페이지</td>
+                    <td><input type="text" name="userUrl"></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button>제출하기</button><input type="reset" value="다시작성"></th>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+
+    <br>
+    <h2>연습문제-4</h2>
+    <div class="header">
+        <a href="https://www.naver.com"><img src="../../images/naver.png" alt="네이버" width="200"></a>
+    </div>
+
+    <div class="center">
+        <form>
+            <label for="id"><strong>아이디</strong></label><br>
+            <input type="text" id="id" name="userId" maxlength="15" required>@naver.com
+            <br><br>
+            <label for="pw"><strong>비밀번호</strong></label><br>
+            <input type="password" id="pw" name="pw" maxlength="20" required>
+            <br><br>
+            <label for="rePw"><strong>비밀번호 재확인</strong ></label><br>
+            <input type="password" id="rePw" maxlength="20" required> <!-- 서버로 보낼 필요 없어서 name 속성이 없음 -->
+            <br><br>
+            <label for="name"><strong>이름</strong></label><br>
+            <input type="text" id="name" name="name" maxlength="10">
+            <br><br>
+            <label for="yyyy"><strong>생년월일</strong></label><br>
+            <input type="text" id="yyyy" name="yyyy" placeholder="년(4자)" maxlength="4" size="4">
+            <select>
+                <option value="">월</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <input type="text" name="dd" placeholder="일" maxlength="2" size="3">
+            <br><br>
+            <strong>성별</strong><br>
+            <select>
+                <option value="0">성별</option>
+                <option value="1">남자</option>
+                <option value="2">여자</option>
+                <option value="3">선택안함</option>
+            </select><br><br>
+            <label for="userMail"><strong>본인 확인 이메일</strong>(선택)</label><br>
+            <input type="email" id="userMail" name="userMail" placeholder="선택입력">
+            <br><br>
+            <label for="phone"><strong>휴대전화</strong></label><br>
+            <select>
+                <option value="+1">미국 +1</option>
+                <option value="+52">멕시코 +52</option>
+                <option value="+53">쿠바 +53</option>
+                <option value="+55">브라질 +55</option>
+                <option value="+57">콜롬비아 +57</option>
+                <option value="+64">뉴질랜드 +64</option>
+                <option value="+81">일본 +81</option>
+                <option value="+82" selected>대한민국 +82</option>
+                <option value="+86">중국 +86</option>
+                <option value="+886">대만 +886</option>
+            </select><br>
+            <input type="text" id="phone" name="phone" placeholder="전화번호 입력" maxlength="8" size="10">
+            <button>인증번호받기</button><br>
+            <input type="text" name="secNum" placeholder="인증번호 입력하세요" disabled>
+            <br><br>
+            <button>가입하기</button>
+        </form>
+    </div>
+
+</body>
+</html>

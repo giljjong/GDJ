@@ -213,5 +213,33 @@
             </fieldset>
          </form>
 
-</body>
+
+    <!-- 네이버 검색창 -->
+
+    <form action="https://search.naver.com/search.naver"
+          method="get">
+          <!-- hidden -->
+        <input type="hidden" name="where" value="nexearch">
+        <input type="hidden" name="sm" value="top_hty">
+        <input type="hidden" name="fbm" value="0">
+        <input type="hidden" name="ie" value="utf=8">
+        <!-- 검색창 -->
+        <input type="text" name="query">
+        <button>검색</button>
+    </form>
+
+    <form action="https://search.daum.net/search" method="get">
+        <!-- hidden -->
+        <input type="hidden" name="w" value="tot">
+        <input type="hidden" name="DA" value="YZR">
+        <input type="hidden" name="t__nil_searcthbox" value="btn">
+        <input type="hidden" name="sug" value="">
+        <input type="hidden" name="sugo" value="">
+        <input type="hidden" name="sq" value="">
+        <input type="hidden" name="o" value="">
+        <!-- 검색창 -->
+        <input type="text" name="q">
+        <button>검색</button>
+    </form>
+ </body>
 </html>
