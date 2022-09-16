@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 박스크기 = 이미지크기 */
+        .box1 {
+            width: 100px;
+            height: 76px;
+            background-image: url(../../images/attach.png);
+            background-size: 100px 76px;    /* 너비 높이 순 */
+        }
+        /* 박스 > 이미지 */
+        .box2 {
+            width: 200px;
+            height: 152px;
+            background-image: url(../../images/attach.png);
+            background-repeat: repeat; /* 디폴트 */
+        }
+        /* 박스 > 이미지 */
+        .box3 {
+            width: 200px;
+            height: 152px;
+            background-image: url(../../images/attach.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        div {
+            box-sizing: border-box;
+            border: 1px solid gray;
+        }
+        /* 박스 < 이미지 */
+        .box4 {
+            width: 50px;
+            height: 38px;
+            background-image: url(../../images/attach.png);
+        }
+        /* 박스 < 이미지 */
+        .box5 {
+            width: 100px;
+            height: 38px;
+            background-image: url(../../images/attach.png);
+            background-repeat: no-repeat;
+            background-size: contain;   /* 너비/높이 중 작은 값에 맞춤 */
+        }
+        .box6 {
+            width: 100px;
+            height: 38px;
+            background-image: url(../../images/attach.png);
+            background-repeat: no-repeat;
+            background-size: cover;   /* 너비/높이 중 큰 값에 맞춤 */
+        }
+        .box7 {
+            width: 140px;
+            height: 120px;
+            background-image: url(../../images/logos.png);
+            background-position: left -595px top -198px;
+        }
+        .box8 {
+            width: 960px;
+            height: 640px;
+            background-image: url(../../images/eiffeltower.jpg);
+            background-size: 100% 100%; /* 박스 크기 기준 */
+            background-blend-mode: multiply;
+            background-color: gray;
+        }
+        .mount {
+            width: 1080px;
+            height: 960px;
+            background-image: url(../../images/hooray.jpg);
+            background-size: 100% 100%;
+            border: 4px solid black;
+            margin: 0 auto;
+        }
+        .text {
+            color: azure;
+            font-weight: 900;
+            font-size: 82px;
+            text-align: center;
+            margin-top: 390px;
+        }
+        .mount:hover {
+            background-image: url(../../images/eiffeltower.jpg);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box1"></div>
+
+    <hr>
+
+    <div class="box2"></div>
+
+    <hr>
+
+    <div class="box3"></div>
+
+    <hr>
+
+    <div class="box4"></div>
+
+    <hr>
+
+    <div class="box5"></div>
+
+    <hr>
+
+    <div class="box6"></div>
+    
+    <hr>
+
+    <div class="box7"></div>
+    
+    <hr>
+
+    <div class="box8">
+    </div>
+
+    <div class="mount">
+        <div class="text">가라는 회사는 안 가고<br>이래도 되나 싶다.</div>
+    </div>
+
+
+</body>
+</html>
