@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 > img {
+            width: 320px;
+        }
+        .box1 > img:nth-of-type(2) {
+            /* display : none; 자리를 차지하지 않고 보이지도 않는다. */
+            display : none;
+        }
+        .box2 > input[type=checkbox] {
+            display : none;
+        }
+        .box2 img {
+            width: 20px;
+        }
+        #check {
+            display: none;
+        }
+        .box2 > label:hover {
+            cursor: pointer;
+        }
+        .box2 > input[type=checkbox]:checked + label > #uncheck {
+            display:none;
+        }
+        .box2 > input[type=checkbox]:checked + label > #check{
+            display: inline;
+        }
+        .box3 {
+            display:inline;
+            /* 인라인에서는 적용되지 않는 CSS 속성 */
+            width: 500px;
+            height: 500px;
+            text-align: center;
+        }
+        .box4 {
+            display: block;
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+        .box5, .box6 {
+            /*
+                inline-block
+                - inline 요소 : 동일 블록에 함께 배치
+                - block  요소 : 너비, 높이, 정렬 등 블록 작업 가능
+            */
+            display: inline-block;
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <img alt="꽃" src="../../images/flower1.jpg">
+        <img alt="꽃" src="../../images/flower2.jpg">
+        <img alt="꽃" src="../../images/flower3.jpg">
+    </div>
+
+    <hr>
+
+    <div class="box2">
+        <input type="checkbox" id="agree1">
+        <label for="agree1"><img alt="체크" src="../../images/uncheck.png" id="uncheck">
+            <img alt="체크" src="../../images/check.png" id="check">이용약관 동의</label><br>
+        <input type="checkbox" id="agree2">
+        <label for="agree2"><img alt="체크" src="../../images/uncheck.png" id="uncheck">
+            <img alt="체크" src="../../images/check.png" id="check">개인정보 수집 및 이용 동의</label><br>
+        <input type="checkbox" id="agree3">
+        <label for="agree3"><img alt="체크" src="../../images/uncheck.png" id="uncheck">
+            <img alt="체크" src="../../images/check.png" id="check">위치기반 서비스 이용 약관 동의</label><br>
+    </div>
+
+    <hr>
+
+    <div class="box3">BOX3</div>
+
+    <hr>
+
+    <span class="box4">BOX4</span>
+
+    <hr>
+
+    <div class="box5">BOX5</div>
+    <div class="box6">BOX6</div>
+
+    
+</body>
+</html>
