@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            1. 한 번만 동작하는 타이머 함수
+                1) 동작
+                    var id = setTimeout(동작할 함수, 시간(밀리초));
+                2) 동작 취소
+                    clearTimeout(id);
+        */
+        setTimeout(function() {
+            console.log('setTimeout'); 
+        }, 3000);
+        var id = setTimeout(function() {
+            console.log('setTimeout');
+        }, 3000);
+       clearTimeout(id);
+    </script>
+    <script>
+
+        /*
+            2. 반복 동작하는 타이머 함수
+                1) 동작
+                    var id = setInterval(동작할 함수, 시간(밀리초));
+                2) 동작 취소
+                    clearInterval(id);
+        */
+
+        var id = setInterval(function(){
+            console.log('setInterval');
+        }, 1000);
+        clearInterval(id);
+    </script>
+    <div id="box1"></div>
+    <script>
+            var count = 5;
+            setInterval(function() {
+                if(count == 0) {
+                    document.getElementById('box1').textContent = '발사';
+                    return;
+                } 
+                document.getElementById('box1').textContent = count--;
+            },1000)
+    </script>
+    <div id="box2"></div>
+    <script>
+        var countdown = 5;
+        function shoot() {
+            setTimeout(function() {
+                if(countdown == 0) {
+                    document.getElementById('box2').textContent = '발사';
+                    return;
+                }
+            document.getElementById('box2').textContent = countdown--;
+            shoot();
+            }, 1000);
+        }
+
+        shoot();
+
+    </script>
+    <script>
+        // 함수 정의
+        function fn_factorial(n) {
+            if(n == 0) {
+                return 1;
+            }
+            return n * fn_factorial(n - 1);
+        }
+
+        // 함수 호출
+        var result = fn_factorial(5);   // 5! 계산
+        console.log(result);
+    </script>
+</body>
+</html>
