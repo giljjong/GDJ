@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      이름
+      <input type="text" id="fullName" maxlength="6" size="6" />
+      <button id="btn">전송</button>
+      <br />
+    </form>
+    <form>
+      갯수
+      <input type="text" id="chngN" value="1" disabled />
+      <button id="up">&nbsp;+&nbsp;</button>
+      <button id="down">&nbsp;-&nbsp;</button>
+    </form>
+    <script>
+      var fName = document.getElementById("fullName");
+      btn.onclick = function () {
+        window.alert(fName.value + "님 환영합니다.");
+      };
+      //   var number = prompt("정수를 입력해주세요");
+      //   while (number > 100 || number < 1) {
+      //     if (number > 100) {
+      //       alert("100 이하의 정수를 입력해주세요.");
+      //     } else if (number < 1) {
+      //       alert("1 이상의 정수를 입력해주세요.");
+      //     }
+      //     var number = prompt("정수를 입력해주세요");
+      //   }
+      //   document.write("입력한 값은 " + number + "입니다.");
+      var chngN = document.getElementById("chngN");
+      var up = document.getElementById("up");
+      var down = document.getElementById("down");
+      var num = 1;
+      up.onclick = function (event) {
+        chngN.attr("value", num++);
+      };
+      down.onclick = function (event) {
+        chngN.value = num--;
+      };
+    </script>
+    <br />
+  </body>
+</html>
