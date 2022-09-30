@@ -18,15 +18,15 @@
     <script>
       // 객체 생성
       var obj = {
-        name: "정종길",
+        name: '정종길',
         age: 29,
         freind: {
-          name: "무기무기",
+          name: '무기무기',
           age: 29,
         },
-        hobbies: ["음악", "게임", "숨쉬기"],
+        hobbies: ['음악', '게임', '숨쉬기'],
         introduce: function () {
-          console.log("이름 " + this.name); // 현재 객체를 의미하는 this
+          console.log('이름 ' + this.name); // 현재 객체를 의미하는 this
         },
       };
 
@@ -46,13 +46,13 @@
 
       // 속성 추가
       // 동적 추가 방식 : 없던 속성이 새로 생성 됨
-      computer.model = "gram";
+      computer.model = 'gram';
       computer.price = 200;
       console.log(computer);
 
       // 속성  수정
       // 존재하던 속성은 수정된다.
-      computer.model = "mac";
+      computer.model = 'mac';
       computer.price = 300;
       console.log(computer);
 
@@ -68,13 +68,13 @@
 
       // 객체 생성
       var book = {
-        title: "소나기",
-        author: "황순원",
-        publisher: "우리출판사",
+        title: '소나기',
+        author: '황순원',
+        publisher: '우리출판사',
       };
 
       for (let p in book) {
-        console.log(p + ":" + book[p]);
+        console.log(p + ':' + book[p]);
       }
     </script>
     <div id="books">
@@ -91,20 +91,20 @@
       // 테이블 만들기
       var books = [
         {
-          title: "소나기",
-          author: "황순원",
+          title: '소나기',
+          author: '황순원',
         },
         {
-          title: "혼공자",
-          author: "신용권",
+          title: '혼공자',
+          author: '신용권',
         },
         {
-          title: "홍길동전",
-          author: "허균",
+          title: '홍길동전',
+          author: '허균',
         },
       ];
       var table =
-        "<table border=1><thead><tr><td>제목</td><td>저자</td></tr></thead><tbody>";
+        '<table border=1><thead><tr><td>제목</td><td>저자</td></tr></thead><tbody>';
       /*
         for (let i in books) {
             table +=
@@ -116,14 +116,14 @@
         }
       */
       for (let i = 0; i < books.length; i++) {
-        table += "<tr>";
+        table += '<tr>';
         for (let p in books[i]) {
-          table += "<td>" + books[i][p] + "</td>";
+          table += '<td>' + books[i][p] + '</td>';
         }
-        table += "</tr>";
+        table += '</tr>';
       }
-      table += "</tbody></table>";
-      document.getElementById("books").innerHTML = table;
+      table += '</tbody></table>';
+      document.getElementById('books').innerHTML = table;
     </script>
     <script>
       /*
@@ -145,8 +145,8 @@
       }
 
       // 생성자 함수 호출 => 객체 생성을 의미한다(new 키워드를 활용)
-      var car1 = new Car("스파크", "쉐보레");
-      var car2 = new Car("레이", "기아");
+      var car1 = new Car('스파크', '쉐보레');
+      var car2 = new Car('레이', '기아');
 
       console.log(car1, car2);
     </script>
@@ -168,21 +168,21 @@
       function Korean(name) {
         this.name = name;
         // 내부에서 prototype 추가하는 방법
-        this.__proto__.country = "korea";
+        this.__proto__.country = 'korea';
         this.__proto__.slogan = function () {
-          console.log("빨리빨리");
+          console.log('빨리빨리');
         };
       }
 
       // 외부에서 prototype 추가하는 방법
-      Korean.prototype.country = "Korea";
+      Korean.prototype.country = 'Korea';
       Korean.prototype.slogan = function () {
         console.log(8282);
       };
 
       // 객체 생성(생성자 함수 호출)
-      var k1 = new Korean("김명준");
-      var k2 = new Korean("송주현");
+      var k1 = new Korean('김명준');
+      var k2 = new Korean('송주현');
 
       // 확인
       console.log(k1, k2);

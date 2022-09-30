@@ -20,31 +20,45 @@
       <button id="down">&nbsp;-&nbsp;</button>
     </form>
     <script>
-      var fName = document.getElementById("fullName");
+      var fName = document.getElementById('fullName');
       btn.onclick = function () {
-        window.alert(fName.value + "님 환영합니다.");
+        window.alert(fName.value + '님 환영합니다.');
       };
-      //   var number = prompt("정수를 입력해주세요");
-      //   while (number > 100 || number < 1) {
-      //     if (number > 100) {
-      //       alert("100 이하의 정수를 입력해주세요.");
-      //     } else if (number < 1) {
-      //       alert("1 이상의 정수를 입력해주세요.");
-      //     }
-      //     var number = prompt("정수를 입력해주세요");
-      //   }
-      //   document.write("입력한 값은 " + number + "입니다.");
-      var chngN = document.getElementById("chngN");
-      var up = document.getElementById("up");
-      var down = document.getElementById("down");
-      var num = 1;
+
+      var chngN = document.getElementById('chngN');
+      var up = document.getElementById('up');
+      var down = document.getElementById('down');
+      var count = document.getElementById('chngN').value;
+      function upDown(n) {
+        count = parseInt(count) + n;
+      }
       up.onclick = function (event) {
-        chngN.attr("value", num++);
+        upDown(1);
       };
       down.onclick = function (event) {
-        chngN.value = num--;
+        upDown(-1);
       };
     </script>
     <br />
+
+    <body>
+      갯수<input type="text" name="quantity" id="quantity" value="1" />
+      <button id="up" onclick="up()">+</button>
+      <button id="down" onclick="down()">-</button>
+    </body>
+
+    <script type="text/javascript">
+      function up() {
+        var count = document.getElementById('quantity').value;
+        document.getElementById('quantity').value = parseInt(count) + 1;
+      }
+
+      function down() {
+        var count = document.getElementById('quantity').value;
+        if (count != 1) {
+          document.getElementById('quantity').value = parseInt(count) - 1;
+        }
+      }
+    </script>
   </body>
 </html>
