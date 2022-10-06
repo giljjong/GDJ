@@ -1,77 +1,88 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <table>
-        <h2>회원 가입 양식</h2><br>
-        <form>
-            <tbody>
-                <tr>
-                    <td>- 아이디</td>
-                    <td><input type="text" name="userId" maxlength="20"> </td>
-                </tr>
-                <tr>
-                    <td>- 비밀번호</td>
-                    <td><input type="password" name="pw" maxlength="25"></td>
-                </tr>
-                <tr>
-                    <td>- 비밀번호 확인</td>
-                    <td><input type="password" name="repw" maxlength="25"></td>
-                </tr>
-                <tr>
-                    <td>- 이름</td>
-                    <td><input type="text" name="name" maxlength="15"></td>
-                </tr>
-                <tr>
-                    <td>- 성별</td>
-                    <td><input type="radio" name="gender" value="1" checked>남성
-                        <input type="radio" name="gender" value="2">여성</td>
-                </tr>
-                <tr>
-                    <td>- 전화번호</td>
-                    <td>
-                        <select>
-                            <option value="02" selected>02</option>
-                            <option value="010" >010</option>
-                            <option value="031" >031</option>
-                            <option value="032" >032</option>
-                            <option value="051" >051</option>
-                            <option value="055" >055</option>
-                        </select>
-                        -
-                        <input type="number" maxlength="4" size="4">
-                        -
-                        <input type="number" maxlength="4" size="4">
-                    </td>
-                </tr>
-                <tr>
-                    <td>- 이메일</td>
-                    <td>
-                        <input type="text" name="userId" placeholder="아이디" maxlength="15">
-                        @
-                        <input type="text" list="domains" name="domain" placeholder="선택 또는 입력">
-                        <datalist id="domains">
-                            <option value="naver.com"></option>
-                            <option value="daum.net"></option>
-                            <option value="gamil.com"></option>
-                            <option value="yahoo.com"></option>
-                            <option value="nate.com"></option>
-                        </datalist>
-                    </td>
-                </tr>
-                <tr>
-                    <td>- 자기소개</td>
-                    <td><textarea name="produce" rows="15" cols="80"></textarea></td>
-                </tr>
-            </tbody>
-        </form>
+      <h2>회원 가입 양식</h2>
+      <br />
+      <form>
+        <tbody>
+          <tr>
+            <td>- 아이디</td>
+            <td><input type="text" name="userId" maxlength="20" /></td>
+          </tr>
+          <tr>
+            <td>- 비밀번호</td>
+            <td><input type="password" name="pw" maxlength="25" /></td>
+          </tr>
+          <tr>
+            <td>- 비밀번호 확인</td>
+            <td><input type="password" name="repw" maxlength="25" /></td>
+          </tr>
+          <tr>
+            <td>- 이름</td>
+            <td><input type="text" name="name" maxlength="15" /></td>
+          </tr>
+          <tr>
+            <td>- 성별</td>
+            <td>
+              <input type="radio" name="gender" value="1" checked />남성
+              <input type="radio" name="gender" value="2" />여성
+            </td>
+          </tr>
+          <tr>
+            <td>- 전화번호</td>
+            <td>
+              <select>
+                <option value="02" selected>02</option>
+                <option value="010">010</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="051">051</option>
+                <option value="055">055</option>
+              </select>
+              -
+              <input type="number" maxlength="4" size="4" />
+              -
+              <input type="number" maxlength="4" size="4" />
+            </td>
+          </tr>
+          <tr>
+            <td>- 이메일</td>
+            <td>
+              <input
+                type="text"
+                name="userId"
+                placeholder="아이디"
+                maxlength="15"
+              />
+              @
+              <input
+                type="text"
+                list="domains"
+                name="domain"
+                placeholder="선택 또는 입력"
+              />
+              <datalist id="domains">
+                <option value="naver.com"></option>
+                <option value="daum.net"></option>
+                <option value="gamil.com"></option>
+                <option value="yahoo.com"></option>
+                <option value="nate.com"></option>
+              </datalist>
+            </td>
+          </tr>
+          <tr>
+            <td>- 자기소개</td>
+            <td><textarea name="produce" rows="15" cols="80"></textarea></td>
+          </tr>
+        </tbody>
+      </form>
     </table>
-
-    
-</body>
+  </body>
 </html>
