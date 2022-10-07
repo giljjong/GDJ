@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 1. GET 방식 요청 : <a> 태그 -->
+	<div>
+		<a href="http://localhost:9090/01_Servlet/AnchorServlet">정상링크1</a>
+	</div>
+	<div>
+		<a href="/01_Servlet/AnchorServlet">정상링크2(추천)</a>
+	</div>
+	<div>
+		<a href="/AnchorServlet">불량링크1(슬래시로 시작하면 컨텍스트 패스로 인식)</a>
+	</div>
+	<div>
+		<a href="01_Servlet/AnchorServlet">불량링크2(컨텍스트 패스는 슬래시로 시작해야한다)</a>
+	</div>
+	<div>
+		<a href="AnchorServlet">불량링크3(URl 매핑으로 인식되지만 HTML 문서의 경로에 따라 실행 여부가 다르다)</a>
+	</div>
+
+	<!-- 연습. -->
+	<!-- 응답 : 1 + 2 = 3 -->
+	<div>
+		<a href="/01_Servlet/AnchorServlet?a=1&b=2">더하기</a>
+	</div>
+	
+	<hr>
+	
+	<!-- 2. GET 방식 요청 : 자바스크립트 location -->
+	<div>
+		<button id="btn1">링크</button>
+		<button id="btn2" data-link="lll">링크2</button>
+	</div>
+	
+	<script src="../js/jquery-3.6.1.min.js"></script>
+	<script>
+		$('#btn1').on('click', function(event){
+			alert('환영합니다.');
+			// location.href= '/01_Servlet/LocationServlet';
+			open('/01_Servlet/LocationServlet');	// open(url, [[name], [features]])
+		});
+		$('#btn2').click(function(event){
+			location.href = '/01_Servlet/LocationServlet?param=' + $(this).data('link');
+		});
+	</script>
+	
+	<!-- 3. GET 방식 요청 : <form> 태그를 이용한 서브밋 -->
+	<div>
+		<form method="GET" id="frm" action="/01_Servlet/FromServlet">
+			<div>
+				<input type="text" id="id" name="id" placeholder="아이디">
+			</div>
+			<div>
+				<input type="password" id="pwd" name="pwd" placeholder="비밀번호">
+			</div>
+			<div>
+				성별 : 
+				<label for="man">
+					<input type="radio" id="man" name="gender" value="남자">
+					남자
+				</label>
+				<label for="female">
+					<input type="radio" id="female" name="gender" value="여자">
+					여자
+				</label>
+				<label for="none">
+					<input type="radio" id="none" name="gender" value="">
+					선택안함
+				</label>
+			</div>
+			<div>
+				<select id="city" name="city">
+					<option value="" selected>도시를 선택하세요</option>
+					<option value="incheon">인천</option>
+					<option value="busan">부산</option>
+					<option value="seoul">서울</option>
+				</select>
+			</div>
+			<!-- 배열 보내기 -->
+			<div>
+				<input type="text" name="phone" size="3" maxlength="3">-
+				<input type="text" name="phone" size="4" maxlength="4">-
+				<input type="text" name="phone" size="4" maxlength="4">
+			</div>
+			<div>
+				<label for="term">
+					<input type="checkbox" id="term" name="agree" value="term">이용약관 동의
+				</label>
+				<label for="service">
+					<input type="checkbox" id="service" name="agree" value="service">서비스약관 동의
+				</label>
+				<label for="marketing">
+					<input type="checkbox" id="marketing" name="agree" value="marketing">마케팅 동의
+				</label>
+			</div>
+			<!-- 연습. 이메일 -->
+			<div>
+				<input type="text" name="email_id" placeholder="아이디">
+				@
+				<input type="text" name="email" list="domain_list" placeholder="입력 또는 선택">
+				 <datalist id=domain_list>
+					<option value="google.com">
+					<option value="naver.com">
+					<option value="kakao.com">
+				 </datalist>
+			</div>
+			<button id="btn">전송</button>
+		</form>
+	</div>
+	<script>
+		$('#frm').submit(function(event){
+			if($('#id').val().length == 0 || $('#pwd').val() == "") {
+				alert('잘못된 아이디/비밀번호 입니다.')
+				event.preventDefault();
+				return;
+			};
+		 	if($(':radio').is(':checked') == false) {
+		 		alert('성별을 선택하여 주세요.')
+		 		event.preventDefault();
+		 		return;
+		 	}
+			if($('#city').val() == '') {
+				alert('도시를 선택해주세요.');
+				event.preventDefault();
+				return;
+			}
+		 	if($('#term').is(':checked') == false) {
+		 		alert('이용 약관에 동의하셔야 합니다.');
+		 		event.preventDefault();
+		 		return;
+		 	};
+		 	if($('#service').is(':checked') == false) {
+		 		alert('서비스 약관에 동의하셔야 합니다.');
+		 		event.preventDefault();
+		 		return;
+		 	};
+		});
+	</script>
+</body>
+</html>

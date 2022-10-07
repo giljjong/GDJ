@@ -24,6 +24,7 @@ document.getElementById("userId").onkeyup = function (event) {
   } else if (id.value.length > 4) {
     id_msg.textContent = "정상적인 아이디입니다.";
   }
+  document.getElementsByName;
 };
 /*
 $("#btn_sigin").on("click", function (event) {
