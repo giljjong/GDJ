@@ -1,0 +1,6 @@
+/bin/
+
+# DB접속정보
+db.properties
+mybatis-config.xml
+/build/
