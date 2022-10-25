@@ -11,6 +11,11 @@
 <script>
 
 	$(document).ready(function(){
+		
+		$('#btn_edit').click(function(event){
+			location.href="${contextPath}/board/edit.do?boardNo=${board.boardNo}";
+		});
+		
 		$('#btn_remove').click(function(event){
 			if(confirm('삭제하시겠습니까? 삭제된 게시글은 복구할 수 없습니다.')){
 			location.href = "${contextPath}/board/remove.do?boardNo=${board.boardNo}";
@@ -18,13 +23,11 @@
 				alert('취소되었습니다.');
 			}
 		});
+		
 		$('#btn_list').click(function(event){
 			location.href="${contextPath}/board/list.do";	
 		});
-		
-		$('#btn_edit').click(function(event){
-			location.href="${contextPath}/board/edit.do?boardNo=${board.boardNo}";
-		});
+
 	})
 
 </script>

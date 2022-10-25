@@ -41,8 +41,8 @@
 	
 	<%-- 4. 배열  --%>
 	<%
-		String[] menus = {"참치찌개", "초밥", "규동", "뼈해장국"};
-		pageContext.setAttribute("menus", menus);
+	String[] menus = {"참치찌개", "초밥", "규동", "뼈해장국"};
+			pageContext.setAttribute("menus", menus);
 	%>
 	<c:forEach	var="menu" items="${menus}" varStatus="vs">
 		인덱스 : ${vs.index}, 순번 : ${vs.count}, 요소 : ${menu} <br>
@@ -52,8 +52,8 @@
 	
 	<%-- 5. 리스트  --%>
 	<%
-		List<String> seasons = Arrays.asList("봄", "여름", "가을", "겨울");
-		pageContext.setAttribute("seasons", seasons);
+	List<String> seasons = Arrays.asList("봄", "여름", "가을", "겨울");
+			pageContext.setAttribute("seasons", seasons);
 	%>
 	<c:forEach var="season" items="${seasons}" varStatus="vs">
 		인덱스 : ${vs.index }, 순번 : ${vs.count }, 요소 : ${season} <br>
@@ -63,10 +63,10 @@
 	
 	<%-- 6. Map(반복문이 필요한 건 아니다.) --%>
 	<%
-		Map<String, Integer> map = new HashMap<>();
-		map.put("begin", 1);
-		map.put("end", 10);
-		pageContext.setAttribute("map", map);
+	Map<String, Integer> map = new HashMap<>();
+			map.put("begin", 1);
+			map.put("end", 10);
+			pageContext.setAttribute("map", map);
 	%>
 	${map.begin } ~ ${map.end } <br>
 	
@@ -74,11 +74,11 @@
 	
 	<%-- 7. 객체(반복문이 필요한 건 아니다.) --%>
 	<%
-		Board board = new Board();
-		board.setBoardNo(1);
-		board.setTitle("도돌이표");
-		board.setHit(13528);
-		pageContext.setAttribute("board", board);
+	Board board = new Board();
+			board.setBoardNo(1);
+			board.setTitle("도돌이표");
+			board.setHit(13528);
+			pageContext.setAttribute("board", board);
 	%>
 	
 	${board.boardNo }, ${board.title }, ${board.hit } <br>
@@ -94,11 +94,11 @@
 		문제. 임의의 Board 객체를 3개 저장한 리스트
 	 --%>
 	 <%
-	 	Board board1 = new Board(2, "그림자", 324);
-	 	Board board2 = new Board(3, "숨쉬기법", 8635);
-	 	Board board3 = new Board(4, "이세계전송트럭운전사", 876451325);
-	 	List<Board> boards = Arrays.asList(board1, board2, board3);
-	 	pageContext.setAttribute("boards", boards);
+	 Board board1 = new Board(2, "그림자", 324);
+	 Board board2 = new Board(3, "숨쉬기법", 8635);
+	 Board board3 = new Board(4, "이세계전송트럭운전사", 876451325);
+	 	 	List<Board> boards = Arrays.asList(board1, board2, board3);
+	 	 	pageContext.setAttribute("boards", boards);
 	 %>
 	 
 	 <table border="1">

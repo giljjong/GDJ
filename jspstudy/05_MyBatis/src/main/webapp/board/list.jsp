@@ -14,6 +14,9 @@
 		margin: 0;
 		color: #333;
 	}
+	body {
+	
+	}
 	h1 {
 		text-align: center;
 	}
@@ -41,6 +44,21 @@
 	}
 	ul > li > a:hover {
 		background-color : orange;
+	}
+	#btn_write {
+		width : 88px;
+		height : 42px;
+		margin : 20px auto;
+		color : papayawhip;
+		background-color : #415841;
+		text-align : center;
+		padding-top : 10px;
+		font-weight : 700;
+		font-size : 18px;
+		border-radius : 5px;
+	}
+	#btn_write:hover {
+		cursor : pointer;
 	}
 </style>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
