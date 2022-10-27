@@ -38,16 +38,16 @@ public class StudentTest {
 	}
 	@Test
 	public void 데이터목록테스트() {
-		assertEquals(9, StudentDao.getInstance().selectAllStudents().size());
+		assertEquals(6, StudentDao.getInstance().selectAllStudents().size());
 	}
 	@Test
 	public void 데이터상세테스트() {
-		assertNotNull(StudentDao.getInstance().selectStudentByNo(3));
+		assertNotNull(StudentDao.getInstance().selectStudentByNo(50));
 	}
 	@Test
 	public void 데이터수정테스트() {
 		Student student = new Student();
-		student.setStuNo(7);
+		student.setStuNo(6);
 		student.setName("테스터2");
 		student.setKor(60);
 		student.setEng(60);
@@ -59,7 +59,7 @@ public class StudentTest {
 	
 	@AfterClass
 	public static void 데이터삭제테스트() {
-		assertEquals(1, StudentDao.getInstance().deleteStudent(8));
+		assertEquals(1, StudentDao.getInstance().deleteStudent(6));
 	}
 
 }

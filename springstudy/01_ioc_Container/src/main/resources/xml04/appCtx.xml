@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+		Namespaces 탭에서 "p" 옵션을 체크하면
+		<property> 태그를 <bean> 태그의 p: 속성으로 바꿔서 사용할 수 있다
+	 -->
+	
+	<!-- 
+		<bean> 태그의 scope 속성
+		1. scope="singleton"
+			1) bean을 하나만 만들어 둔다
+			2) 생략하면 singleton이 사용된다
+		2. scope="prototype"
+			1) bean을 요청할때마다 만들어 준다
+			
+	 -->
+	
+	<bean id="dao" class="com.gdu.app01.xml04.Dao" scope="prototype"></bean>
+</beans>

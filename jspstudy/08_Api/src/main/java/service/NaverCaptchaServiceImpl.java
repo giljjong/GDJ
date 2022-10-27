@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
@@ -122,6 +123,7 @@ public class NaverCaptchaServiceImpl implements NaverCaptchaService {
 				// login.jsp로 전달할 데이터
 				map.put("dirname", dirname);
 				map.put("fileName", fileName);
+				map.put("key", key);
 				
 				in.close();
 				out.close();
@@ -168,8 +170,47 @@ public class NaverCaptchaServiceImpl implements NaverCaptchaService {
 	}
 	@Override
 	public boolean validateUserInput(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return false;
+		String value = request.getParameter("value");
+		String key = request.getParameter("key");
+		
+		boolean result = false;
+		
+		String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=1&value=" + value + "&key=" + key;
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		
+		try {
+			url = new URL(apiURL);
+			con = (HttpURLConnection)url.openConnection();
+			con.setRequestMethod("GET");
+			con.setRequestProperty("X-Naver-Client-Id", CLIENT_ID);
+			con.setRequestProperty("X-Naver-Client-Secret", CLIENT_SECRET);
+			
+			BufferedReader reader = null;
+			if(con.getResponseCode() == HttpURLConnection.HTTP_OK) {		
+				reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			} else {
+				reader = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+			
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			
+			while((line = reader.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			JSONObject obj = new JSONObject(sb.toString());
+			result = obj.getBoolean("result");
+			
+			reader.close();
+			con.disconnect();
+			
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

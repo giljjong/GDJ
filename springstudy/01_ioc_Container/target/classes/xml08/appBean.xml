@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="Calc" class="com.gdu.app01.xml08.Calculator"></bean>
+	<bean id="bmiCalc" class="com.gdu.app01.xml08.BMICalculator">
+		<constructor-arg ref="Calc"></constructor-arg>
+		<constructor-arg value="176"></constructor-arg>
+		<constructor-arg value="88"></constructor-arg>
+	</bean>
+	<bean id="member" class="com.gdu.app01.xml08.Member">
+		<constructor-arg value="강감찬"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>헬스</value>
+				<value>수영</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg ref="bmiCalc"></constructor-arg>
+	</bean>
+</beans>

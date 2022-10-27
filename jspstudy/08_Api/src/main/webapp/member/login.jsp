@@ -24,6 +24,7 @@
 				dataType : 'json',
 				success : function(resData) {
 					$('#ncaptcha').attr('src', '../'+resData.dirname+'/'+resData.fileName+'');
+					$('#key').val(resData.key);
 				}
 			});
 		});
@@ -34,7 +35,7 @@
 
 	<div class="wrap">
 		<h1>로그인</h1>
-		<form id="frm">
+		<form id="frm" action="${contextPath}/member/validateCaptcha.do">
 			<div>
 				<input type="text" name="id" id="id" placeholder="아이디">
 			</div>
@@ -53,7 +54,8 @@
 				 </div>
 			</div>
 			<div>
-				<input type="text" name="user_input" placeholder="자동입력 방지문자">
+				<input type="text" name="value" id="user_input" placeholder="자동입력 방지문자">
+				<input type="hidden" id="key" name="key" value="${key}">
 			</div>
 			<div>
 				<button>로그인</button>
