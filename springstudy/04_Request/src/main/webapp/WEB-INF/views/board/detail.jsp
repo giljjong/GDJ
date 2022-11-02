@@ -8,7 +8,7 @@
 </head>
 <body>
 	회원 상세 보기
-	<div>제목 : ${title}</div>	
-	<div>조회수 : ${hit}</div>
+	<div>제목 : ${board.title}</div>	
+	<div>조회수 : ${board.hit}</div>
 </body>
 </html>
