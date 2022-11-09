@@ -31,14 +31,52 @@
 		  FROM EMPLOYEES
 	</select>
 	
-	<select id="selectEmployeesByPage" resultMap="EmpMap">
+	<select id="selectEmployeesByPage" parameterType="map" resultMap="EmpMap">
 		SELECT B.*
 	  	  FROM (SELECT ROWNUM AS RN, A.*
 	          	  FROM (SELECT E.*, D.DEPARTMENT_NAME, D.LOCATION_ID
-	                  	  FROM EMPLOYEES E INNER JOIN DEPARTMENTS D
+	                  	  FROM DEPARTMENTS D RIGHT OUTER JOIN EMPLOYEES E
 	                  		ON E.DEPARTMENT_ID = D.DEPARTMENT_ID
 	                 	 ORDER BY HIRE_DATE DESC) A) B
-		 WHERE B.RN BETWEEN #{param1} AND #{param2}
+		 WHERE B.RN BETWEEN #{begin} AND #{end}
 	</select>
-
+	
+	<select id="selectFindEmployeesCount" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM EMPLOYEES
+		 <where>
+			 <if test="column=='EMPLOYEE_ID' or column=='DEPARTMENT_ID'"> ${column} = #{query}</if>
+			 <if test="column=='LAST_NAME' or column=='FIRST_NAME' or column=='PHONE_NUMBER'">${column} '%' || #{query} || '%'</if>
+			 <if test="column=='HIRE_DATE'">HIRE_DATE BETWEEN TO_DATE(#{start}, 'yyyy-mm-dd') AND TO_DATE(#{stop}, 'yyyy-mm-dd')</if>
+			 <if test="column=='SALARY'">SALARY BETWEEN #{start} AND #{stop}</if>
+		 </where>
+	</select>
+	
+	<select id="selectFindEmployees" parameterType="map" resultMap="EmpMap">
+		SELECT B.*
+		  FROM ( SELECT ROWNUM AS RN, A.*
+		  		   FROM (SELECT E.EMPLOYEE_ID ,
+E.FIRST_NAME,
+E.LAST_NAME,
+E.EMAIL,
+E.PHONE_NUMBER,
+E.HIRE_DATE,
+E.JOB_ID,
+E.SALARY,
+E.COMMISSION_PCT,
+E.MANAGER_ID,
+D.DEPARTMENT_ID,
+D.DEPARTMENT_NAME
+		  		  		   FROM DEPARTMENTS D RIGHT OUTER JOIN (SELECT * FROM EMPLOYEES
+		  		  		   <where>
+							 <if test="column=='EMPLOYEE_ID' or column=='DEPARTMENT_ID'"> ${column} = #{query}</if>
+							 <if test="column=='LAST_NAME' or column=='FIRST_NAME' or column=='PHONE_NUMBER'">${column} '%' || #{query} || '%'</if>
+							 <if test="column=='HIRE_DATE'">HIRE_DATE BETWEEN TO_DATE(#{start}, 'yyyy-mm-dd') AND TO_DATE(#{stop}, 'yyyy-mm-dd')</if>
+							 <if test="column=='SALARY'">SALARY BETWEEN #{start} AND #{stop}</if>
+						 </where>) E
+		  		  		     ON D.DEPARTMENT_ID = E.DEPARTMENT_ID
+		  				  ORDER BY ${column} DESC) A ) B
+		 WHERE B.RN BETWEEN #{begin} AND #{end}
+	</select>
+	
 </mapper>
