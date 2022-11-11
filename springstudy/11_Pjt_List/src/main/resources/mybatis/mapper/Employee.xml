@@ -55,18 +55,8 @@
 	<select id="selectFindEmployees" parameterType="map" resultMap="EmpMap">
 		SELECT B.*
 		  FROM ( SELECT ROWNUM AS RN, A.*
-		  		   FROM (SELECT E.EMPLOYEE_ID ,
-E.FIRST_NAME,
-E.LAST_NAME,
-E.EMAIL,
-E.PHONE_NUMBER,
-E.HIRE_DATE,
-E.JOB_ID,
-E.SALARY,
-E.COMMISSION_PCT,
-E.MANAGER_ID,
-D.DEPARTMENT_ID,
-D.DEPARTMENT_NAME
+		  		   FROM (SELECT E.EMPLOYEE_ID , E.FIRST_NAME, E.LAST_NAME, E.EMAIL, E.PHONE_NUMBER, E.HIRE_DATE, E.JOB_ID, E.SALARY, E.COMMISSION_PCT,
+								E.MANAGER_ID, D.DEPARTMENT_ID, D.DEPARTMENT_NAME
 		  		  		   FROM DEPARTMENTS D RIGHT OUTER JOIN (SELECT * FROM EMPLOYEES
 		  		  		   <where>
 							 <if test="column=='EMPLOYEE_ID' or column=='DEPARTMENT_ID'"> ${column} = #{query}</if>
@@ -78,5 +68,12 @@ D.DEPARTMENT_NAME
 		  				  ORDER BY ${column} DESC) A ) B
 		 WHERE B.RN BETWEEN #{begin} AND #{end}
 	</select>
+	
+	<select id="selectAutoCompleteList" parameterType="Map" resultType="EmpDTO">
+		SELECT DISTINCT ${target}
+		  FROM EMPLOYEES
+		 WHERE ${target} LIKE CONCAT(#{param}, '%')
+	</select>
+	
 	
 </mapper>

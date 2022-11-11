@@ -99,7 +99,9 @@
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 <script>
 	$(document).ready(function() {
+
 		$('#area2').css('display', 'none');
+		
 		$('#column').change(function(){
 			let combo = $(this);
 			if(combo.val() == 'HIRE_DATE' || combo.val() == 'SALARY'){
@@ -110,11 +112,19 @@
 				$('#area2').hide();
 			}
 		});
+		
 		$('#btn_all').click(function(){
 			location.href='${contextPath}/emp/list';
 		});
+		
 		$('#frm_search').submit(function(){
+			if($('#query').val() == '' && $('#start').val() == '' && $('#stop').val() == ''){
+				event.preventDefault();
+				location.href='${contextPath}/emp/list';
+				return;
+			}
 		});
+
 	});
 </script>
 </head>
@@ -155,11 +165,46 @@
 			 		<input type="text" id="stop" name="stop" class="searchBox">
 				</span>
 				<span>
-					<input type="submit" value="검색" class="btn_primary">
+					<input type="submit" value="검색" id="btn_primary" class="btn_primary">
 					<input type="button" value="전체사원조회" id="btn_all" class="btn_primary">
 				</span>
 			</form>
 		</div>
+		
+		<div>
+		<select name="target" id="target">
+			<option value="FIRST_NAME">이름</option>
+			<option value="LAST_NAME">성</option>
+			<option value="EMAIL">이메일</option>
+		</select>
+		<input type="text" id="param" name="param" list="auto_complete">
+		<datalist id="auto_complete"></datalist>
+		<script>
+			$('#param').keyup(function(){
+				$('#auto_complete').empty();
+				if($(this).val() == ''){
+					return;
+				}
+				$.ajax({
+					/* 요청 */
+					type: 'get',
+					url: '${contextPath}/emp/autoComplete',
+					data: 'target=' + $('#target').val() + '&param=' + $(this).val(),
+					/* 응답 */
+					dataType: 'json',
+					success: function(resData){
+						if(resData.status == 200){
+							$.each(resData.list, function(i, emp){
+								$('#auto_complete')
+								.append($('<option>').val(emp[resData.target]));
+							});
+						}
+					}
+				});
+			});
+		</script>
+	</div>
+		
 		<table>
 			<thead class="head_font">
 				<tr>
