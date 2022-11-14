@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.blind{
+		display : none;
+	}
+	.lbl_one, .lbl_all {
+		padding-left : 20px;
+		background-image: url(../images/uncheck.png);
+		background-size: 18px 18px;
+		background-repeat: no-repeat;
+	}
+	.lbl_one, .lbl_all:hover {
+		cursor: pointer;
+	}
+	.lbl_checked {
+		background-image: url(../images/check.png);
+	}
