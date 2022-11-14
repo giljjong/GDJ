@@ -14,18 +14,27 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.apache.ibatis.io.Resources;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import com.gdu.app13.mapper.UserMapper;
 import com.gdu.app13.util.SecurityUtil;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
+@PropertySource(value = {"classpath:email.properties"})
 @Service
 public class UserServiceImpl implements UserService {
 
+	// 이메일을 보내는 사용자 정보
+	@Value(value = "${mail.username}")
+	private String username;  // 본인 지메일 주소
+	
+	@Value(value="${mail.password}")
+	private String password;  // 발급 받은 앱 비밀번호
+	@Autowired
 	private UserMapper userMapper;
+	@Autowired
 	private SecurityUtil securityUtil;
 	
 	@Override
@@ -65,21 +74,7 @@ public class UserServiceImpl implements UserService {
 		 * 			(2) 기기 선택 : windows 컴퓨터
 		 * 			(3) 생성 버튼 : 16자리 앱 비밀번호를 생성해 줌(이 비밀번호를 이메일 보낼 때
 		 */
-		
-		String resource = "resources/email/email.properties";
-		Properties emailProp = new Properties();
-		
-		try {
-			 Reader reader = Resources.getResourceAsReader(resource);
-			 emailProp.load(reader);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		// 이메일을 보내는 사용자 정보
-		String username = "doriyet@gmail.com";	// 본인 지메일
-		String password = "hsveznwecxhjfmie";	// 발급 받은 앱 비밀번호
-		
+
 		// 사용자 정보를 javax.mail. Session에 저장
 		Session session = Session.getInstance(properties, new Authenticator() {
 			@Override
