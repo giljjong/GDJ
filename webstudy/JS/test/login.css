@@ -21,9 +21,10 @@ header {
 }
 .gubun {
   margin-bottom: 5px;
+  background-color: #4290df;
 }
 body {
-  background-color: #f5f6f7;
+  background-color: #5ca4ec;
 }
 .input_area input {
   width: 100%;
@@ -76,6 +77,6 @@ footer {
   height: 50px;
   line-height: 50px;
   background-color: #007777;
-  color: #ffffff;
+  color: #f1f7f4;
   margin: 10px auto;
 }
