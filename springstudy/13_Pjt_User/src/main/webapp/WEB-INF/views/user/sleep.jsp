@@ -9,6 +9,15 @@
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
 <script>
+	$(function(){
+		$('#frm_restore').submit(function(event){
+			if($('#pw').val() == ''){
+				alert('비밀번호를 입력하세요.');
+				event.preventDefault();
+				return;
+			};
+		});
+	});
 </script>
 <style>
 	body {
@@ -48,33 +57,33 @@
 </style>
 </head>
 <body>
-	
-	<!-- 로그인이 안 된 상태 -->
-	<c:if test="${loginUser == null}">
-		<a href="${contextPath}/user/agree">회원가입 페이지</a>
-		<a href="${contextPath}/user/login/form?url=${url}">로그인 페이지</a>
-	</c:if>
-	
-	<!-- 로그인이 된 상태 -->
-	<c:if test="${loginUser ne null}">
-		<div id="welcomebox">
-			<a href="${contextPath}/user/check/form">${loginUser.name}</a>님 반갑습니다.
-		</div><br>
-		<div id="retireBlock">
-			<a href="${contextPath}/user/logout" id="lnk_logout">로그아웃</a>
-			<a href="javascript:fn_abc()" id="retire_text">회원탈퇴</a>
-			<form id="lnk_retire" action="${contextPath}/user/retire" method="post"></form>
+		<h1>휴면계정안내</h1>
+		
+		<div>
+			안녕하세요!<br>
+			${sleepUser.id}님은 1년 이상 로그인하지 않아 관련 법령에 의해 휴면계정으로 전환되었습니다.
+			<ul>
+				<li>가입일 ${sleepUser.joinDate}</li>
+				<li>마지막 로그인 ${sleepUser.lastLoginDate}</li>
+				<li>휴면 전환일 ${sleepUser.sleepDate}</li>
+			</ul>
 		</div>
-	</c:if>
-		<script>
-			function fn_abc(){
-				if(confirm('탈퇴하시겠습니까?') == true) {
-					$('#lnk_retire').submit();
-				} else {
-					event.preventDefault();
-					return;
-				}
-			};
-		</script>
+		
+		<hr>
+		
+		<div>
+			<div>
+				비밀번호를 입력한 뒤 휴면해제 버튼을 클릭해 주세요.
+			</div>
+			<form action="${contextPath}/user/restore" method="post">
+				<div>
+					<label for="pw">비밀번호</label>
+					<input type="password" id="pw" name="pw">
+				</div>
+				<div>
+					<button>휴면해제</button>
+				</div>
+			</form>
+		</div>
 </body>
 </html>
