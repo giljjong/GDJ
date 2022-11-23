@@ -542,8 +542,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String getNaverLoginToken(HttpServletRequest request) {
 		
-		// access_token 받기
-		
 		String clientId = "jhYSq_krJJlvhO5rRMNF";
 		String clientSecret = "RF2DyVSt_1";
 		String code = request.getParameter("code");
@@ -556,7 +554,7 @@ public class UserServiceImpl implements UserService {
 			e.printStackTrace();
 		}
 		
-		StringBuffer res = new StringBuffer();  // StringBuffer는 StringBuilder과 동일한 역할 수행
+		StringBuffer res = new StringBuffer();
 		try {
 			
 			String apiURL;
@@ -583,17 +581,6 @@ public class UserServiceImpl implements UserService {
 			}
 			br.close();
 			con.disconnect();
-			
-			/*
-				res.toString()
-				
-				{
-					"access_token":"AAAANipjD0VEPFITQ50DR__AgNpF2hTecVHIe9v-_uoyK5eP1mfdYX57bM3VTF_x4cWgz0v2fQlZsOOjl9uS0j8CLI4",
-					"refresh_token":"2P9T9LTrnjaBf8XwF87a2UNUL4isfvk3QyLF8U1MDmju5ViiSXNSxii80ii8kvZWDiiYSiptFFYsuwqWl6C8n59NwoAEU6MmipfIis2htYMnZUlutzvRexh0PIZzzqqK3HlGYttJ",
-					"token_type":"bearer",
-					"expires_in":"3600"
-				}
-			*/
 		
 		} catch (Exception e) {
 			e.printStackTrace();
