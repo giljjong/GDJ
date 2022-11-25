@@ -62,6 +62,7 @@ public class UserServiceImpl implements UserService {
 		Map<String, Object> result = new HashMap<>();
 		result.put("isUser", userMapper.selectUserByMap(map) != null);
 		result.put("isRetireUser", userMapper.selectRetireUserById(id) != null);
+		System.out.println(securityUtil.sha256("1111"));
 		return result;
 	}
 	

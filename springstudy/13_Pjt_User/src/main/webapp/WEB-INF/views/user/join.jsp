@@ -46,7 +46,7 @@
 			
 			$.ajax({
 				type : 'get',
-				url : '${contextPath}/user/checkSameId',
+				url : '${contextPath}/user/checkReduceId',
 				data : 'id=' + $(this).val(),
 				dataType : 'json',
 				success : function(resData){

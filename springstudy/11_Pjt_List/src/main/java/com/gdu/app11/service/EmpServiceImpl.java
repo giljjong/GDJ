@@ -43,6 +43,8 @@ public class EmpServiceImpl implements EmpService {
 		model.addAttribute("employees", employees);
 		model.addAttribute("beginNo", totalRecord - (page - 1) * pageUtil.getRecordPerPage());
 		model.addAttribute("totalRecord", totalRecord);
+		
+		System.out.println(employees);
 	}
 	
 	@Override
